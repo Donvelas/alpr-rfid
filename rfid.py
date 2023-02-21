@@ -33,25 +33,9 @@ def file_open():
             my_label.config(text="File couldn't be opened, try again")
         except FileNotFoundError:
             my_label.config(text="File not found")
-    
-    # clear old tree view        
-    clear_tree()
-    
-# clear tree function 
-def clear_tree():
-    my_tree.delete(*my_tree.get_children())
             
-        
-        
-
-# add a menu to the window
-my_menu = Menu(root)
-root.config(menu=my_menu)
-
-# add menu button to open spreadsheet
-file_menu = Menu(my_menu, tearoff=False)
-my_menu.add_cascade(label="Speadsheets", menu=file_menu)
-file_menu.add_command(label="Open", command=file_open)
+# Button for choosing file
+button1 = Button(root, text="open file", command=file_open).pack()
 
 # Labels for error codes
 my_label = Label(root, text='')
